@@ -210,7 +210,7 @@ cmd_modversions =								\
 		$(call cmd_gensymtypes,$(KBUILD_SYMTYPES),$(@:.o=.symtypes))	\
 		    > $(@D)/.tmp_$(@F:.o=.ver);					\
 										\
-		$(LD) $(LDFLAGS) -z noexecstack -r -o $@ $(@D)/.tmp_$(@F) 			\
+		$(LD) $(LDFLAGS) -m aarch64elf -z noexecstack -r -o $@ $(@D)/.tmp_$(@F) 			\
 			-T $(@D)/.tmp_$(@F:.o=.ver);				\
 		rm -f $(@D)/.tmp_$(@F) $(@D)/.tmp_$(@F:.o=.ver);		\
 	else									\
